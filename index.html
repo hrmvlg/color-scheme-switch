@@ -6,8 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Scheme Switch</title>
 
-    <meta name="theme-color"  media="(prefers-color-scheme: light)" content="#c7cbcc">
-    <meta name="theme-color"  media="(prefers-color-scheme: dark)" content="#273a43">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#c7cbcc">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#273a43">
+
+    <script>
+        if (matchMedia('(prefers-color-scheme: dark)').media === 'not all') {
+            document.documentElement.style.display = 'none';
+            document.head.insertAdjacentElement(
+                'beforeend',
+                '<link rel="stylesheet" href="styles/light.css" onload="document.documentElement.style.display=\'\'">'
+            )
+        }
+    </script>
 
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/light.css" media="(prefers-color-scheme: light)">
